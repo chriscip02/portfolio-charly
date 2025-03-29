@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    z-index: 1000;
+    padding: 20px 0px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px; /* Igual que la cuadrícula */
+    margin: 0 auto;
+    padding: 0 50px; /* Igual que la cuadrícula */
+}
+
+
+.logo {
+    font-size: 30px;
+    font-weight: 700; /* Bold (700) o 800 para ExtraBold si prefieres más impacto */
+    color: #fff; /* Color blanco para el texto */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+/* Aseguramos que el color no cambie al visitar el enlace */
+.logo:visited {
+    color: #fff; /* Mantiene el color blanco incluso después de visitar */
+}
+
+/* Opcional: Si quieres un efecto al pasar el mouse */
+.logo:hover {
+    color: #ccc; /* Cambia a gris claro al pasar el mouse, igual que otros enlaces */
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 300; /* Medium (500) o 600 para SemiBold si quieres más peso */
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ccc;
+}
+
+/* Menú hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal ul {
+    list-style: none;
+    text-align: center;
+}
+
+.modal ul li {
+    margin: 20px 0;
+}
+
+.modal ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.modal ul li a:hover {
+    color: #ccc;
+}
+
+/* Main - Project Grid */
+main {
+    padding-top: 100px; /* Espacio para el header fijo */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Separación entre proyectos como en bambamusic.com */
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transición suave para el zoom */
+}
+
+.project-item:hover img {
+    transform: scale(1.05); /* Zoom del 5%, puedes ajustar este valor (ej. 1.1 para 10%) */
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-overlay p {
+    color: #fff;
+    text-align: center;
+    font-weight: 400; /* Light (300) o 400 para Regular si prefieres algo más sólido */
+    padding: 20px;
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+
+/* Studio Info Section */
+.studio-info {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 100px 50px;
+    color: #fff;
+}
+
+.studio-info h2 {
+    font-family: 'Playfair Display', serif; /* Usamos Playfair Display para el título */
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Ajuste para el ancla con header fijo */
+.studio-info[id="contact"]::before {
+    content: '';
+    display: block;
+    height: 100px; /* Altura del header */
+    margin-top: -100px; /* Compensa la altura del header */
+    visibility: hidden;
+}
+
+[id="everything"]::before {
+    content: '';
+    display: block;
+    height: 100px; /* Altura del header en pantallas grandes */
+    margin-top: -100px; /* Compensa la altura del header */
+    visibility: hidden;
+}
+
+.info-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.description {
+    flex: 1;
+    max-width: 50%;
+}
+
+.description p {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.contact-details {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 60px;
+}
+
+.contact-person p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.contact-person p:nth-child(2) {
+    font-weight: 300;
+    color: #ccc;
+}
+
+.contact-person a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.contact-person a:hover {
+    color: #ccc;
+}
+
+.social-location {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.social-location p {
+    margin-bottom: 10px;
+}
+
+.social-location a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-location a:hover {
+    color: #ccc;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #252525;
+    margin-top: 50px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400; /* Regular para los enlaces del footer */
+}
+
+.social-icons a:hover {
+    color: #ccc;
+}
+
+/* Video Container */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* Altura completa menos header y footer */
+    padding: 100px 50px 50px; /* Espacio para header fijo y algo abajo */
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo más grande para que ocupe más espacio */
+    height: 675px; /* Altura fija para proporción 16:9 con max-width 1200px */
+    border: none;
+}
+
+
+/* Media Queries para responsividad */
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-content {
+        flex-direction: column;
+    }
+
+    .description {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .contact-details {
+        justify-content: flex-start;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px; /* Ajustamos el padding para móvil */
+    }
+
+    .video-container iframe {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .studio-info {
+        padding: 50px 20px; /* Igual que project-grid en móvil */
+        text-align: center; /* Centramos todo el contenido */
+    }
+
+    .studio-info h2 {
+        font-size: 36px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .social-location {
+        text-align: center;
+    }
+
+    /* Ajuste para el ancla en móvil */
+    .studio-info[id="contact"]::before {
+        height: 90px; /* Altura aproximada del header en móvil */
+        margin-top: -70px; /* Compensa la altura del header en móvil */
+    }
+
+    [id="everything"]::before {
+        height: 70px; /* Altura del header en móvil */
+        margin-top: -70px; /* Compensa la altura del header en móvil */
+    }
+}
