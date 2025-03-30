@@ -191,7 +191,7 @@ main {
 }
 
 .studio-info h2 {
-    font-family: 'Playfair Display', serif; /* Usamos Playfair Display para el título */
+    font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 40px;
@@ -329,7 +329,16 @@ footer {
         flex-direction: column;
     }
 
+    .project-overlay {
+        display: none; /* Oculta completamente el overlay */
+    }
+
+    .project-item:hover .project-overlay {
+        display: none; /* Asegura que no se muestre al interactuar */
+    }
+
     .description {
+        
         max-width: 100%;
         margin-bottom: 40px;
     }
@@ -367,6 +376,17 @@ footer {
         height: auto;
         aspect-ratio: 16 / 9;
     }
+
+    .project-overlay {
+        display: none; /* Oculta completamente el overlay */
+    }
+
+    .project-item:hover .project-overlay {
+        display: none; /* Asegura que no se muestre al interactuar */
+    }
+
+   
+
 
     .studio-info {
         padding: 50px 20px; /* Igual que project-grid en móvil */
