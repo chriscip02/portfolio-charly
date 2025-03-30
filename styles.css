@@ -308,7 +308,9 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 160px); /* Altura completa menos header y footer */
-    padding: 100px 50px 50px; /* Espacio para header fijo y algo abajo */
+    padding: 50px 50px 10px; /* Reducimos el padding-bottom de 50px a 10px */
+    margin-bottom: 0; /* Nos aseguramos de que no haya margen inferior */
+
 }
 
 .video-container iframe {
@@ -331,7 +333,7 @@ footer {
     line-height: 1; /* Centrado vertical */
     text-align: center;
     cursor: pointer;
-    margin: 20px auto; /* Centrado horizontalmente */
+    margin: 5px auto; /* Reducimos aún más el margen superior */
     transition: all 0.3s ease; /* Transición suave */
 }
 
@@ -451,6 +453,7 @@ footer {
         width: 35px; /* Un poco más pequeño en móvil */
         height: 35px;
         font-size: 18px;
+        margin: 5px auto; /* Mantenemos el margen pequeño */
     }
     .back-arrow i {
         line-height: 31px; /* Ajuste para móvil */
