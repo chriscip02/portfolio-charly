@@ -20,25 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "flex"; // Mostrar el modal
         });
 
-        // Cerrar el modal al hacer clic fuera de los enlaces
         modal.addEventListener("click", function (e) {
             if (e.target === modal) {
                 modal.style.display = "none";
             }
         });
 
-        // Cerrar el modal y manejar desplazamiento personalizado para "Contact"
         const modalLinks = modal.querySelectorAll("a");
         modalLinks.forEach(link => {
             link.addEventListener("click", function (e) {
                 modal.style.display = "none";
 
-                // Si el enlace es "Contact", desplazamiento personalizado en móvil/tablet
+                // Desplazamiento personalizado para "Contact" en móvil/tablet
                 if (this.getAttribute("href") === "#contact" && window.innerWidth <= 1024) {
-                    e.preventDefault(); // Prevenir el comportamiento por defecto
+                    e.preventDefault();
                     const contactPerson = document.querySelector(".contact-person");
                     if (contactPerson) {
-                        const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 80; // Ajuste por header
+                        const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120; // Ajuste mayor
                         window.scrollTo({
                             top: offsetTop,
                             behavior: "smooth"
@@ -51,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("No se encontraron los elementos .hamburger o .modal");
     }
 
-    // Manejar el enlace "Contact" en la navegación principal (si sigue visible en tablet)
+    // Manejar el enlace "Contact" en la navegación principal
     const navContactLink = document.querySelector('nav ul li a[href="#contact"]');
     if (navContactLink) {
         navContactLink.addEventListener("click", function (e) {
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 const contactPerson = document.querySelector(".contact-person");
                 if (contactPerson) {
-                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 80; // Ajuste por header
+                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120; // Ajuste mayor
                     window.scrollTo({
                         top: offsetTop,
                         behavior: "smooth"
