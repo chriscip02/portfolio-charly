@@ -28,4 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("No se encontraron los elementos .hamburger o .modal en video.html");
     }
-});
+
+     // Lógica para el botón de flecha atrás
+    const backArrow = document.querySelector(".back-arrow");
+    if (backArrow) {
+        backArrow.addEventListener("click", function () {
+            window.location.href = "index.html#everything";
+        });
+    }
+ });
