@@ -209,6 +209,58 @@ main {
     z-index: 10;
 }
 
+/* 🔽 SERVICES SECTION STYLING */
+.services-section {
+    background-color: #000000;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 150px 50px 0px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.services-content {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 40px;
+    color: #fff;
+    font-style: italic;
+}
+
+.service-block {
+    margin-bottom: 40px;
+}
+
+.service-block h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color:#fff;
+}
+
+.service-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+/* 🔼 END SERVICES STYLING */
+
+
 
 /* Studio Info Section */
 .studio-info {

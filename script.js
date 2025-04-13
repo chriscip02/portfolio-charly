@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navContactLink = document.querySelector('nav ul li a[href="#contact"]');
     if (navContactLink) {
         navContactLink.addEventListener("click", function (e) {
-            if (window.innerWidth <= 1024) {
+            if (window.innerWidth <= 2000) {
                 e.preventDefault();
                 const contactPerson = document.querySelector(".contact-person");
                 if (contactPerson) {
