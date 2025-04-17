@@ -15,6 +15,12 @@ body {
     line-height: 1.6;
 }
 
+/* Clase para el efecto hover ochentoso */
+.neon-hover:hover {
+    color: #FF00FF; /* Magenta neón */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
 /* Header */
 header {
     position: fixed;
@@ -99,7 +105,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ccc;
+    color: #FF00FF;
 }
 
 /* Menú hamburguesa */
@@ -142,7 +148,7 @@ nav ul li a:hover {
 }
 
 .modal ul li a:hover {
-    color: #ccc;
+    color: #FF00FF;
 }
 
 /* Main - Project Grid */
@@ -228,7 +234,7 @@ main {
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -237,13 +243,13 @@ main {
     font-size: 22px;
     font-weight: 400;
     text-align: left;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     color: #fff;
     font-style: italic;
 }
 
 .service-block {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .service-block h4 {
@@ -271,6 +277,7 @@ main {
 }
 
 .studio-info h2 {
+    display: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     font-weight: 700;
@@ -329,7 +336,8 @@ main {
     margin-bottom: 5px;
 }
 
-.contact-person p:nth-child(2) {
+.contact-person p:nth-child(2),
+.contact-person a:nth-child(3) {
     font-weight: 300;
     color: #ccc;
 }
@@ -338,10 +346,11 @@ main {
     color: #fff;
     text-decoration: none;
     font-weight: 300;
+    transition: color 0.3s;
 }
 
 .contact-person a:hover {
-    color: #ccc;
+    color: #FF00FF;
 }
 
 .social-location {
@@ -357,10 +366,11 @@ main {
 .social-location a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .social-location a:hover {
-    color: #ccc;
+    color: #FF00FF;
 }
 
 
