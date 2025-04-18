@@ -220,7 +220,7 @@ main {
     background-color: #000000;
     max-width: 1800px;
     margin: 0 auto;
-    padding: 150px 50px 0px;
+    padding: 150px 50px;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
@@ -249,6 +249,7 @@ main {
 }
 
 .service-block {
+    
     margin-bottom: 10px;
 }
 
@@ -399,16 +400,20 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 160px); /* Altura completa menos header y footer */
-    padding: 50px 50px 10px; /* Reducimos el padding-bottom de 50px a 10px */
-    margin-bottom: 0; /* Nos aseguramos de que no haya margen inferior */
-
+    min-height: 0; /* Eliminamos min-height para permitir flexibilidad */
+    padding: 100px 50px 50px; /* Ajustamos padding para centrar mejor */
+    margin-bottom: 0;
+    width: 100%;
 }
+
+
 
 .video-container iframe {
     width: 100%;
-    max-width: 1200px; /* Ancho máximo más grande para que ocupe más espacio */
-    height: 675px; /* Altura fija para proporción 16:9 con max-width 1200px */
+    max-width: 1200px; /* Mantener ancho máximo */
+    aspect-ratio: 16 / 9; /* Proporción 16:9 */
+    height: auto; /* Altura basada en proporción */
+    max-height: calc(100vh - 200px); /* Limitar altura para que quepa en el viewport */
     border: none;
 }
 
@@ -513,10 +518,17 @@ footer {
         padding: 0 20px; /* Ajustamos el padding para móvil */
     }
 
+    .video-container {
+        padding: 80px 10px 50px; /* Reducir padding lateral para maximizar el ancho */
+        align-items: flex-start; /* Alinear al inicio para mejor visibilidad */
+    }
+
     .video-container iframe {
-        max-width: 100%;
+        width: 100%; /* Ocupar todo el ancho disponible */
+        max-width: none; /* Eliminar max-width para usar todo el espacio */
         height: auto;
         aspect-ratio: 16 / 9;
+        max-height: calc(100vh - 150px); /* Limitar altura para dejar espacio al botón */
     }
 
     .project-overlay {
@@ -527,6 +539,17 @@ footer {
         display: none; /* Asegura que no se muestre al interactuar */
     }
 
+
+    .services-section {
+       text-align: center;
+    }
+
+    .section-subtitle {
+        
+        text-align: center;
+       
+    }
+    
    
 
 
@@ -571,6 +594,18 @@ footer {
 }
 
 @media (max-width: 480px) {
+
+    .services-section {
+        text-align: center; /* Centramos todo el contenido */
+    }
+
+    .section-subtitle {
+        
+        text-align: center;
+       
+    }
+    
+   
     /* Ajustes adicionales para pantallas muy pequeñas */
     .logo-image img {
         width: 35px; /* Aún más pequeño para pantallas muy pequeñas */

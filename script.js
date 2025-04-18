@@ -31,12 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
             link.addEventListener("click", function (e) {
                 modal.style.display = "none";
 
-                // Desplazamiento personalizado para "Contact" en móvil/tablet
-                if (this.getAttribute("href") === "#contact" && window.innerWidth <= 1024) {
+                // Desplazamiento personalizado para "Contact" en móvil
+                if (this.getAttribute("href") === "#contact" && window.innerWidth <= 768) {
                     e.preventDefault();
-                    const contactPerson = document.querySelector(".contact-person");
-                    if (contactPerson) {
-                        const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120; // Ajuste mayor
+                    const studioInfoSection = document.querySelector(".studio-info");
+                    if (studioInfoSection) {
+                        const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70; // Ajuste para móvil
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+
+                // Desplazamiento personalizado para "Services"
+                if (this.getAttribute("href") === "#services") {
+                    e.preventDefault();
+                    const servicesSection = document.querySelector(".services-section");
+                    if (servicesSection) {
+                        const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - 120;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: "smooth"
@@ -53,16 +66,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const navContactLink = document.querySelector('nav ul li a[href="#contact"]');
     if (navContactLink) {
         navContactLink.addEventListener("click", function (e) {
-            if (window.innerWidth <= 2000) {
+            if (window.innerWidth <= 768) {
                 e.preventDefault();
-                const contactPerson = document.querySelector(".contact-person");
-                if (contactPerson) {
-                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120; // Ajuste mayor
+                const studioInfoSection = document.querySelector(".studio-info");
+                if (studioInfoSection) {
+                    const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70; // Ajuste para móvil
                     window.scrollTo({
                         top: offsetTop,
                         behavior: "smooth"
                     });
                 }
+            } else {
+                // En pantallas más grandes, desplazamos a contact-person
+                e.preventDefault();
+                const contactPerson = document.querySelector(".studio-info");
+                if (contactPerson) {
+                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+    }
+
+    // Manejar el enlace "Services" en la navegación principal
+    const navServicesLink = document.querySelector('nav ul li a[href="#services"]');
+    if (navServicesLink) {
+        navServicesLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            const servicesSection = document.querySelector(".services-section");
+            if (servicesSection) {
+                const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - 120;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
             }
         });
     }
