@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Aplicar fade-in al cargar la página
+    document.body.classList.add("loaded");
+
     // Lógica para los enlaces de los proyectos
     const projectLinks = document.querySelectorAll(".project-link");
 
@@ -7,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             const videoUrl = this.getAttribute("data-video");
             localStorage.setItem("selectedVideo", videoUrl);
-            window.location.href = "video.html";
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = "video.html";
+            }, 300); // Esperar 0.3s
         });
     });
 
@@ -31,12 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
             link.addEventListener("click", function (e) {
                 modal.style.display = "none";
 
-                // Desplazamiento personalizado para "Contact" en móvil
+                // Desplazamiento personalizado para "Contact" en móvil/tablet
                 if (this.getAttribute("href") === "#contact" && window.innerWidth <= 768) {
                     e.preventDefault();
                     const studioInfoSection = document.querySelector(".studio-info");
                     if (studioInfoSection) {
-                        const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70; // Ajuste para móvil
+                        const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: "smooth"
@@ -70,16 +76,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 const studioInfoSection = document.querySelector(".studio-info");
                 if (studioInfoSection) {
-                    const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70; // Ajuste para móvil
+                    const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: "smooth"
                     });
                 }
             } else {
-                // En pantallas más grandes, desplazamos a contact-person
                 e.preventDefault();
-                const contactPerson = document.querySelector(".studio-info");
+                const contactPerson = document.querySelector(".contact-person");
                 if (contactPerson) {
                     const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120;
                     window.scrollTo({
@@ -105,5 +110,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
+    }
+
+    // Manejar ancla en la URL al cargar la página
+    const hash = window.location.hash;
+    if (hash === "#services" || hash === "#contact") {
+        setTimeout(() => {
+            const section = document.querySelector(hash);
+            if (section) {
+                const offset = hash === "#contact" && window.innerWidth <= 768 ? 70 : 120;
+                const offsetTop = section.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        }, 100);
     }
 });

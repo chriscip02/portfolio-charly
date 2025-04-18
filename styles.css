@@ -13,6 +13,18 @@ body {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
+    opacity: 0; /* Estado inicial para fade-in */
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+body.loaded {
+    opacity: 1; /* Estado final después de cargar */
+}
+
+/* Animación de fundido para salida (fade-out) */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* Clase para el efecto hover ochentoso */
