@@ -38,11 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 modal.style.display = "none";
 
                 // Desplazamiento personalizado para "Contact" en móvil/tablet
-                if (this.getAttribute("href") === "#contact" && window.innerWidth <= 768) {
+                if (this.getAttribute("href") === "#contact") {
                     e.preventDefault();
                     const studioInfoSection = document.querySelector(".studio-info");
                     if (studioInfoSection) {
-                        const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - 70;
+                        let offset;
+                        if (window.innerWidth <= 768) {
+                            offset = 70; // Móvil
+                        } else if (window.innerWidth <= 1440) {
+                            offset = 90; // Notebooks
+                        } else {
+                            offset = 120; // Escritorio
+                        }
+                        const offsetTop = studioInfoSection.getBoundingClientRect().top + window.scrollY - offset;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: "smooth"
@@ -55,7 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     e.preventDefault();
                     const servicesSection = document.querySelector(".services-section");
                     if (servicesSection) {
-                        const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - 120;
+                        let offset;
+                        if (window.innerWidth <= 768) {
+                            offset = 70; // Móvil
+                        } else if (window.innerWidth <= 1440) {
+                            offset = 90; // Notebooks
+                        } else {
+                            offset = 120; // Escritorio
+                        }
+                        const offsetTop = servicesSection.getBoundingClientRect().top + window.scrollY - offset;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: "smooth"
@@ -118,7 +134,14 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             const section = document.querySelector(hash);
             if (section) {
-                const offset = hash === "#contact" && window.innerWidth <= 768 ? 70 : 120;
+                let offset;
+                if (hash === "#contact" && window.innerWidth <= 768) {
+                    offset = 70; // Móvil
+                } else if (window.innerWidth <= 1440) {
+                    offset = 90; // Notebooks
+                } else {
+                    offset = 120; // Escritorio
+                }
                 const offsetTop = section.getBoundingClientRect().top + window.scrollY - offset;
                 window.scrollTo({
                     top: offsetTop,
