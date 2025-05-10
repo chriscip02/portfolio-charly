@@ -52,7 +52,6 @@ header {
     padding: 0 50px; /* Igual que la cuadrícula */
 }
 
-
 /* Contenedor del logo (imagen + texto) */
 .logo-container {
     display: flex;
@@ -71,7 +70,7 @@ header {
 /* Enlace de la imagen */
 .logo-image {
     display: block;
-    text-decoration: none;
+    text-decoration: none; /* Ya lo tenías, lo mantenemos */
 }
 
 /* Contenedor del texto (MUSIC AUDIO y PRODUCER) */
@@ -80,6 +79,7 @@ header {
     flex-direction: column; /* Apila las líneas verticalmente */
     justify-content: center;
 }
+
 /* Estilo para "MUSIC AUDIO" */
 .line1 {
     font-family: 'Montserrat', sans-serif;
@@ -96,6 +96,20 @@ header {
     font-weight: 700;
     color: #fff;
     line-height: 1;
+}
+
+/* Eliminar subrayado y controlar color del enlace que envuelve .logo-text */
+.logo-container a[href="#everything"] {
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Asegurar que no haya subrayado ni cambio de color en ningún estado del enlace */
+.logo-container a[href="#everything"]:link,
+.logo-container a[href="#everything"]:visited,
+.logo-container a[href="#everything"]:hover,
+.logo-container a[href="#everything"]:active {
+    text-decoration: none; /* Sin subrayado en todos los estados */
+    color: #fff; /* Mantiene el color blanco del texto */
 }
 
 
@@ -186,11 +200,12 @@ main {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease; /* Transición suave para el zoom */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Añadimos transición para el desenfoque */
 }
 
 .project-item:hover img {
     transform: scale(1.05); /* Zoom del 5%, puedes ajustar este valor (ej. 1.1 para 10%) */
+    filter: blur(5px) brightness(0.5); /* Añadimos desenfoque al hacer hover */
 }
 
 .project-overlay {
@@ -199,7 +214,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000; /* Cambia de rgba a negro absoluto sólido */
+    background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente en lugar de negro sólido */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,10 +223,11 @@ main {
 }
 
 .project-overlay p {
-    color: #fff;
+    color: #FF00FF; /* Magenta neón */
     text-align: center;
     font-weight: 400; /* Light (300) o 400 para Regular si prefieres algo más sólido */
     padding: 20px;
+    text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF; /* Brillo neón */
 }
 
 .project-item:hover .project-overlay {
@@ -261,7 +277,6 @@ main {
 }
 
 .service-block {
-    
     margin-bottom: 10px;
 }
 
@@ -269,7 +284,7 @@ main {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
-    color:#fff;
+    color: #fff;
 }
 
 .service-block p {
@@ -278,8 +293,6 @@ main {
     margin-bottom: 10px;
 }
 /* 🔼 END SERVICES STYLING */
-
-
 
 /* Studio Info Section */
 .studio-info {
@@ -325,8 +338,6 @@ main {
 .description {
     width: 100%;
     margin-bottom: 40px; /* Espacio antes de contact-details */
-    
-    
 }
 
 .description p {
@@ -337,9 +348,8 @@ main {
 }
 
 .contact-details {
-    
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     gap: 60px;
 }
 
@@ -386,7 +396,6 @@ main {
     color: #FF00FF;
 }
 
-
 /* Footer */
 footer {
     text-align: center;
@@ -417,8 +426,6 @@ footer {
     margin-bottom: 0;
     width: 100%;
 }
-
-
 
 .video-container iframe {
     width: 100%;
@@ -475,7 +482,6 @@ footer {
     }
 
     .description {
-        
         max-width: 100%;
         margin-bottom: 40px;
     }
@@ -490,6 +496,61 @@ footer {
     }
 }
 
+/* Nuevo Media Query para notebooks (ancho entre 1024px y 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    /* Ajustes para Services */
+    .services-section {
+        padding: 100px 50px; /* Reducimos el padding superior e inferior */
+    }
+
+    .section-title {
+        font-size: 40px; /* Reducimos ligeramente el tamaño del título */
+    }
+
+    .section-subtitle {
+        font-size: 20px;
+        text-align: center; /* Centramos para mejor apariencia */
+    }
+
+    .service-block h4 {
+        font-size: 18px;
+    }
+
+    .service-block p {
+        font-size: 15px;
+    }
+
+    /* Ajustes para Studio Info (Contact) */
+    .studio-info {
+        padding: 80px 50px; /* Reducimos el padding para que quepa mejor */
+    }
+
+    .studio-info[id="contact"]::before {
+        height: 90px; /* Ajustamos la altura para notebooks */
+        margin-top: -90px; /* Compensamos */
+    }
+
+    .info-content {
+        margin-bottom: 30px; /* Reducimos el margen para que quepa más contenido */
+    }
+
+    .description p {
+        font-size: 15px;
+    }
+
+    .contact-details {
+        gap: 40px; /* Reducimos el espacio entre los contactos */
+    }
+
+    .contact-person p {
+        font-size: 15px;
+    }
+
+    .social-location p {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .header-container {
         padding: 0 20px;
@@ -501,13 +562,14 @@ footer {
         height: 40px;
     }
 
-     /* Ajustar el tamaño del texto en móvil */
-     .logo-text {
+    /* Ajustar el tamaño del texto en móvil */
+    .logo-text {
         font-size: 24px; /* Tamaño más pequeño para móvil */
     }
 
     /* Ajustar el tamaño del texto en móvil */
-    .line1, .line2 {
+    .line1,
+    .line2 {
         font-size: 16px; /* Tamaño más pequeño para móvil */
     }
 
@@ -515,7 +577,6 @@ footer {
     .logo-container {
         gap: 8px; /* Reducir el espacio entre imagen y texto en móvil */
     }
-
 
     nav ul {
         display: none;
@@ -551,19 +612,13 @@ footer {
         display: none; /* Asegura que no se muestre al interactuar */
     }
 
-
     .services-section {
-       text-align: center;
+        text-align: center;
     }
 
     .section-subtitle {
-        
         text-align: center;
-       
     }
-    
-   
-
 
     .studio-info {
         padding: 50px 20px; /* Igual que project-grid en móvil */
@@ -600,34 +655,31 @@ footer {
         font-size: 18px;
         margin: 5px auto; /* Mantenemos el margen pequeño */
     }
+
     .back-arrow i {
         line-height: 31px; /* Ajuste para móvil */
     }
 }
 
 @media (max-width: 480px) {
-
     .services-section {
         text-align: center; /* Centramos todo el contenido */
     }
 
     .section-subtitle {
-        
         text-align: center;
-       
     }
-    
-   
+
     /* Ajustes adicionales para pantallas muy pequeñas */
     .logo-image img {
         width: 35px; /* Aún más pequeño para pantallas muy pequeñas */
         height: 35px;
     }
 
-    .line1, .line2 {
+    .line1,
+    .line2 {
         font-size: 14px; /* Aún más pequeño */
     }
-
 
     .logo-container {
         gap: 6px; /* Aún menos espacio */
