@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (window.innerWidth <= 768) {
                             offset = 70; // Móvil
                         } else if (window.innerWidth <= 1440) {
-                            offset = 90; // Notebooks
+                            offset = 120; // Notebooks
                         } else {
                             offset = 120; // Escritorio
                         }
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 const contactPerson = document.querySelector(".contact-person");
                 if (contactPerson) {
-                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 120;
+                    const offsetTop = contactPerson.getBoundingClientRect().top + window.scrollY - 368;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: "smooth"

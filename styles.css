@@ -500,7 +500,7 @@ footer {
 @media (min-width: 1025px) and (max-width: 1440px) {
     /* Ajustes para Services */
     .services-section {
-        padding: 100px 50px; /* Reducimos el padding superior e inferior */
+        padding: 20px 50px; /* Reducimos el padding superior e inferior */
     }
 
     .section-title {
@@ -509,7 +509,7 @@ footer {
 
     .section-subtitle {
         font-size: 20px;
-        text-align: center; /* Centramos para mejor apariencia */
+       
     }
 
     .service-block h4 {
@@ -522,7 +522,7 @@ footer {
 
     /* Ajustes para Studio Info (Contact) */
     .studio-info {
-        padding: 80px 50px; /* Reducimos el padding para que quepa mejor */
+        padding: 50px 50px; /* Reducimos el padding para que quepa mejor */
     }
 
     .studio-info[id="contact"]::before {
@@ -531,7 +531,7 @@ footer {
     }
 
     .info-content {
-        margin-bottom: 30px; /* Reducimos el margen para que quepa más contenido */
+        margin-bottom: 20px; /* Reducimos el margen para que quepa más contenido */
     }
 
     .description p {
