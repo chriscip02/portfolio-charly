@@ -282,9 +282,10 @@ main {
 
 .service-block h4 {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 10px;
-    color: #fff;
+    color: #FFFF00; /* Amarillo neón */
+    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00; /* Brillo neón amarillo */
 }
 
 .service-block p {
@@ -376,6 +377,11 @@ main {
     color: #FF00FF;
 }
 
+.contact-person .highlight-name {
+    color: #FFFF00; /* Amarillo neón */
+    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00; /* Brillo neón amarillo */
+}
+
 .social-location {
     text-align: left;
     font-size: 16px;
@@ -396,6 +402,12 @@ main {
     color: #FF00FF;
 }
 
+/* Separar el párrafo "Contact us..." del texto superior */
+.social-location .contact-links {
+    margin-top: 30px; /* Espacio superior para destacarlo */
+    margin-bottom: 0; /* Eliminamos el margen inferior para que no afecte al contenido siguiente */
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -406,9 +418,9 @@ footer {
 
 .social-icons a {
     color: #fff;
-    margin: 0 15px;
+    margin: 0 30px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 400; /* Regular para los enlaces del footer */
 }
 
@@ -461,6 +473,39 @@ footer {
     background-color: #fff; /* Fondo blanco al pasar el mouse */
     color: #504d4d; /* Flecha negra al pasar el mouse */
     border-color: #fff;
+}
+
+/* Estilo para los iconos de redes sociales */
+.social-icon {
+    font-size: 23px; /* Tamaño para escritorio */
+    color: #fff;
+    margin: 0 8px; /* Espacio entre iconos */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* Efecto neón al hacer hover */
+.social-icon.neon-hover:hover {
+    color: #FF00FF;
+    text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF;
+}
+
+/* Asegurar que los iconos no tengan subrayado en ningún estado */
+.social-icon:link,
+.social-icon:visited,
+.social-icon:hover,
+.social-icon:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Ajustar el texto en .social-location para que los iconos se integren bien */
+.social-location p {
+    margin-bottom: 10px;
+    line-height: 1.8;
 }
 
 /* Media Queries para responsividad */
