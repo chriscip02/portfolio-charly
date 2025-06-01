@@ -14,7 +14,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     opacity: 0; /* Estado inicial para fade-in */
-    transition: opacity 0.3s ease; /* Transición suave */
+    transition: opacity 0.8s ease-in, filter 0.8s ease-in; /* Transición suave */
 }
 
 body.loaded {
@@ -134,6 +134,31 @@ nav ul li a:hover {
     color: #FF00FF;
 }
 
+/* Estilo para el enlace F I L M + con efecto neón */
+.neon-film {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; /* Igual que nav ul li a */
+    font-weight: 700; /* Igual que neon-title */
+    color: #ff00ff; /* Magenta neón */
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff; /* Brillo cian */
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+/* Asegurar que el hover no cambie el estilo neón */
+.neon-film:hover {
+    color: #ff00ff; /* Mantener magenta */
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff; /* Mantener brillo */
+}
+
 /* Menú hamburguesa */
 .hamburger {
     display: none;
@@ -175,6 +200,27 @@ nav ul li a:hover {
 
 .modal ul li a:hover {
     color: #FF00FF;
+}
+
+.modal ul li a.neon-film {
+    font-size: 24px; /* Igual que modal ul li a */
+    font-weight: 700; /* Igual que neon-title */
+    color: #ff00ff;
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff;
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+.modal ul li a.neon-film:hover {
+    color: #ff00ff; /* Mantener magenta */
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff;
 }
 
 /* Main - Project Grid */
@@ -508,6 +554,84 @@ footer {
     line-height: 1.8;
 }
 
+/* Estilos para la sección de introducción en film.html */
+.film-intro {
+    max-width: 1200px;
+    margin: 6rem auto 4rem; /* Más espacio arriba (6rem) y abajo (4rem) */
+    padding: 0 50px; /* Igual que project-grid en escritorio */
+    text-align: left; /* Alineación izquierda en escritorio */
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+    animation-delay: 0.3s; /* Retraso para efecto escalonado */
+}
+
+/* Título con efecto neón */
+.neon-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400; /* Alineado con section-title */
+    color: #ff00ff; /* Rosa neón */
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff; /* Brillo cian */
+    margin-bottom: 1rem;
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+/* Texto descriptivo con estilo retro */
+.neon-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 
+        0 0 3px #00f0ff,
+        0 0 6px #00f0ff;
+    line-height: 1.8;
+    max-width: 800px;
+}
+
+
+/* Animación de entrada (sin cambios) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de parpadeo neón (sin cambios) */
+@keyframes neon-flicker {
+    0% {
+        text-shadow: 
+            0 0 5px #ff00ff,
+            0 0 10px #ff00ff,
+            0 0 20px #ff00ff,
+            0 0 40px #00f0ff;
+    }
+    50% {
+        text-shadow: 
+            0 0 3px #ff00ff,
+            0 0 7px #ff00ff,
+            0 0 15px #ff00ff,
+            0 0 30px #00f0ff;
+    }
+    100% {
+        text-shadow: 
+            0 0 5px #ff00ff,
+            0 0 10px #ff00ff,
+            0 0 20px #ff00ff,
+            0 0 40px #00f0ff;
+    }
+}
+
 /* Media Queries para responsividad */
 @media (max-width: 1024px) {
     .project-grid {
@@ -704,6 +828,28 @@ footer {
     .back-arrow i {
         line-height: 31px; /* Ajuste para móvil */
     }
+
+    .film-intro {
+        margin: 4rem auto 3rem; /* Menos espacio en móvil, pero aún separado */
+        padding: 0 20px; /* Igual que project-grid en móvil */
+        text-align: center; /* Centrado en móvil */
+    }
+
+    .neon-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem; /* Menos espacio entre título y texto en móvil */
+    }
+
+    .neon-text {
+        font-size: 14px;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .neon-film {
+        font-size: 24px; /* Igual que modal ul li a en móvil */
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -728,5 +874,17 @@ footer {
 
     .logo-container {
         gap: 6px; /* Aún menos espacio */
+    }
+
+    .neon-title {
+        font-size: 1.5rem;
+    }
+
+    .neon-text {
+        font-size: 13px;
+    }
+
+    .neon-film {
+        font-size: 20px; /* Ligeramente más pequeño para pantallas muy pequeñas */
     }
 }
