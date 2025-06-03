@@ -137,26 +137,24 @@ nav ul li a:hover {
 /* Estilo para el enlace F I L M + con efecto neón */
 .neon-film {
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px; /* Igual que nav ul li a */
-    font-weight: 700; /* Igual que neon-title */
-    color: #ff00ff; /* Magenta neón */
+    font-size: 15px;
+    font-weight: 600;
+    color: #00FFFF; /* Turquesa neón */
     text-transform: uppercase;
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #00f0ff; /* Brillo cian */
-    animation: neon-flicker 1.5s infinite alternate;
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 4px #00FFFF; /* Brillo turquesa */
+    animation: neon-flicker-turquesa 1s infinite alternate;
 }
 
 /* Asegurar que el hover no cambie el estilo neón */
 .neon-film:hover {
-    color: #ff00ff; /* Mantener magenta */
+    color: #00FFFF; /* Mantener turquesa */
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #00f0ff; /* Mantener brillo */
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 4px #00FFFF;
 }
 
 /* Menú hamburguesa */
@@ -203,25 +201,24 @@ nav ul li a:hover {
 }
 
 .modal ul li a.neon-film {
-    font-size: 24px; /* Igual que modal ul li a */
-    font-weight: 700; /* Igual que neon-title */
-    color: #ff00ff;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00FFFF;
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #00f0ff;
-    animation: neon-flicker 1.5s infinite alternate;
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 4px #00FFFF;
+    animation: neon-flicker-turquesa 1s infinite alternate;
 }
 
 .modal ul li a.neon-film:hover {
-    color: #ff00ff; /* Mantener magenta */
+    color: #00FFFF;
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #00f0ff;
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 4px #00FFFF;
 }
+
 
 /* Main - Project Grid */
 main {
@@ -268,6 +265,22 @@ main {
     transition: opacity 0.3s ease;
 }
 
+.project-overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente en lugar de negro sólido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+
 .project-overlay p {
     color: #FF00FF; /* Magenta neón */
     text-align: center;
@@ -276,7 +289,19 @@ main {
     text-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF; /* Brillo neón */
 }
 
+.project-overlay1 p {
+    color: #00FFFF; /* Turquesa neón */
+    text-align: center;
+    font-weight: 400;
+    padding: 20px;
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF; /* Brillo turquesa */
+}
+
 .project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-item:hover .project-overlay1 {
     opacity: 1;
 }
 
@@ -569,16 +594,15 @@ footer {
 .neon-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    font-weight: 400; /* Alineado con section-title */
-    color: #ff00ff; /* Rosa neón */
+    font-weight: 400;
+    color: #00FFFF; /* Turquesa neón */
     text-transform: uppercase;
     text-shadow: 
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #00f0ff; /* Brillo cian */
-    margin-bottom: 1rem;
-    animation: neon-flicker 1.5s infinite alternate;
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 4px #00FFFF; /* Brillo turquesa */
+    margin-bottom: 1.5rem;
+    animation: neon-flicker-turquesa 1s infinite alternate;
 }
 
 /* Texto descriptivo con estilo retro */
