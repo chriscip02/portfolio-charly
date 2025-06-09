@@ -840,6 +840,7 @@ footer {
 
     .service-grid {
         grid-template-columns: 1fr; /* Cambia a 1 columna */
+        row-gap: 80px; /* Aumentamos SIGNIFICATIVAMENTE el espacio vertical entre las cajas */
     }
 
     .studio-info {
@@ -916,6 +917,7 @@ footer {
 
     .service-grid {
         grid-template-columns: 1fr; /* Cambia a 1 columna */
+        row-gap: 80px; /* Aumentamos SIGNIFICATIVAMENTE el espacio vertical entre las cajas */
     }
 
     /* Ajustes adicionales para pantallas muy pequeñas */
