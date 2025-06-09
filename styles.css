@@ -336,33 +336,58 @@ main {
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 .section-subtitle {
     font-size: 22px;
     font-weight: 400;
-    text-align: left;
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 50px; /* Aumentamos el espacio antes de las cajas */
     color: #fff;
     font-style: italic;
 }
 
-.service-block {
-    margin-bottom: 10px;
+/* Grid para las "pantallas" de servicios */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+    gap: 30px; /* Espacio entre las cajas */
 }
 
-.service-block h4 {
+/* Cada item de servicio (título + pantalla) */
+.service-item-tv h4 {
     font-size: 20px;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
     color: #FFFF00; /* Amarillo neón */
-    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00; /* Brillo neón amarillo */
+    text-shadow: 0 0 5px #FFFF00, 0 0 10px #FFFF00;
 }
 
-.service-block p {
+/* La "pantalla" del televisor que contiene el texto */
+.service-screen {
+    border: 1px solid #444; /* Borde sutil para definir la pantalla */
+    background-color: #050505; /* Fondo ligeramente distinto para dar profundidad */
+    padding: 25px;
+    height: 100%; /* Para que todas las cajas tengan la misma altura */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-screen:hover {
+    border-color: #FFFF00; /* Borde se ilumina al pasar el ratón */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+}
+
+.service-screen p {
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.service-screen p:last-child {
+    margin-bottom: 0;
 }
 /* 🔼 END SERVICES STYLING */
 
@@ -813,6 +838,10 @@ footer {
         text-align: center;
     }
 
+    .service-grid {
+        grid-template-columns: 1fr; /* Cambia a 1 columna */
+    }
+
     .studio-info {
         padding: 50px 20px; /* Igual que project-grid en móvil */
         text-align: center; /* Centramos todo el contenido */
@@ -883,6 +912,10 @@ footer {
 
     .section-subtitle {
         text-align: center;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Cambia a 1 columna */
     }
 
     /* Ajustes adicionales para pantallas muy pequeñas */
